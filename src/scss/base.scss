@@ -1,0 +1,98 @@
+.base{
+    .van-nav-bar{
+        z-index: 999 !important;
+    }
+    .header{
+        width: 100%;
+        overflow: hidden;
+        img{
+            width: 100%;
+            height: 4.2rem;
+            display: block;
+        }
+        video{
+            width: 100%;
+            height: 4.2rem;
+        }
+    }
+    .content{
+        .content_children{
+            width: 100%;
+            overflow: hidden;
+            border-radius: 5px;
+            .swiper-pagination-farm{
+//              position: fixed;
+//              top: .67rem;
+//              color: white;
+//              bottom: inherit;
+//              background: #067ECB;
+////              text-align: right;
+//              z-index: 9999999;
+            }
+        }
+        padding-top: .43rem;
+        .base_environment,.basics_info{
+            width: 100%;
+            background: white;
+            border-radius: .1rem;
+            overflow: hidden;
+            ul{
+              display: flex;
+              flex-wrap: wrap;
+              li{
+                  width: 25%;
+                  text-align: center;
+                  p{
+                      margin: .0rem 0 .24rem 0;
+                      font-size: .4rem;
+                      color: #1B2B02;
+                  }
+                  p:nth-of-type(2){
+                      font-size: .24rem;
+                      color: #797A78;
+                      margin: 0 0 .62rem 0;
+                  }
+              }  
+            }   
+        }
+        .basics_info{
+//          margin: .44rem 0 0 0;
+            border-top: 1px solid #E3E3E3;
+            .b_i_content{
+                ul{
+                    display: block;
+                    li{
+                        width: 100%;
+                        font-size: .24rem;
+                        color: #3E3D3D;
+                        display: flex;
+                        line-height: .4rem;
+                        div{
+                            display: flex;
+                            align-items: center;
+                            flex-grow: 2;
+                            padding: .39rem 0;
+                        }
+                        .name{
+                            flex-grow: 0;
+                            width: 2rem;
+                            justify-content: center;
+                            color: #797A78;
+                            border-right: 1px solid #E3E3E3;
+                        }
+                        .b_i_c_content{
+                            width: 4.8rem;
+                            box-sizing: border-box;
+                            padding: 0 .23rem 0 .23rem;
+                            padding: .23rem;
+                            text-align: left;
+                        }
+                    }
+                    li:nth-child(2n-1){
+                        background:rgba(247,247,247,1);
+                    }
+                }
+            }
+        }
+    }
+}

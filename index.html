@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title></title>
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./static/lib/css/swiper-3.4.2.min.css" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="http://webapi.amap.com/maps?v=1.4.1&key=cee6ea497e5b61b28dee9eb588bbebc0"></script>
+    <script>
+    	var host=window.location.host;
+    	var name=host.split('.')[0]
+    	console.log(name)
+    	var num=0;
+    	var titleArr=['宁夏广玉面粉有限公司','宁夏贺丰种业有限公司','宁夏金河科技股份有限公司','宁夏宁宝世家食品科技有限公司','宁夏万家香食品有限公司','宁夏伊聚徳农工贸有限公司','灵武市玉锋粮油综合加工有限公司','银川育新枸杞种业有限公司']
+    	var videoArr=['guangyu','hefeng','jinhe','linbao','wanjx','yijd','yufeng','yuxin'];
+			for(var a=0;a<videoArr.length;a++){
+				if(name==videoArr[a]){
+					num=a
+					break
+				}
+			}
+			num=2
+    	var TITLE=titleArr[num]
+    	var API_URL="http://jinhe.yshfresh.com/"  // /
+    	var IMG_URL = 'http://jinhe.yshfresh.com/servlet/getfile?file=' // /servlet/getfile?file=
+    	// /servlet/getfile?file=/video/   /hefengzhongye/video/
+    	var VIDEO_URL = 'http://47.94.144.115:8089'+'/'+videoArr[num]+'/video/'  
+//  	var API_URL='http://10.2.15.51:8082/'
+//  	var IMG_URL = 'http://10.2.15.51:8082/servlet/getfile?file=' // /servlet/getfile?file=
+//  	var VIDEO_URL='http://10.2.15.51:8082/servlet/getfile?file=/video/'
+    </script>
+    <script src="./static/lib/js/swiper-3.4.2.min.js"></script>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

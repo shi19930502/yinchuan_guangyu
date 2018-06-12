@@ -1,0 +1,156 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit; /* 1 */
+    font-size: 100%; /* 2 */
+    margin: 0; /* 3 */
+    padding: 0;
+}
+button,
+input {
+    line-height: normal;
+}
+
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* html5boilerplate.com Clearfix
+--------------------------------- */
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.clearfix {
+  *zoom: 1;
+}
+
+
+//内容
+.content {
+    width: 100%;
+    overflow: hidden;
+    padding: 0.23rem;
+    box-sizing: border-box;
+    background: #E3FCD3;
+//  background: rgba(111,162,37,.3);
+}
+.swiper-pagination-enterprise,
+.swiper-pagination-enterpriseOpen,
+.swiper-pagination-farm,
+.swiper-pagination-vedioShow,
+.swiper-pagination-honorShow,
+.swiper-pagination-videoShow,
+.swiper-pagination-base,
+.swiper-pagination-cooked,
+.swiper-pagination-farmChildrenPopupShow,
+.swiper-pagination-honor {
+    font-size: 0.3rem;
+    text-align: center;
+    margin-top: 0.2rem;
+}
+.content_header {
+    width: 3.7rem;
+    text-align: center;
+    font-size: 0.38rem;
+    height: 0.4rem;
+    letter-spacing: .06rem;
+    line-height: 0.4rem;
+    background: url("../assets/img/img_di.png") no-repeat 1rem;
+    background-size: contain;
+    margin: 0.5rem auto 0.52rem;
+    font-weight: bold;
+    color: #639617;
+}
+.van-nav-bar {
+    background: #067ECB;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 555 !important;
+    font-size: 1.2rem;
+    .van-icon {
+        position: relative;
+        z-index: 555;
+        color: white !important;
+    }
+}
+.van-nav-bar__title {
+    font-size: 0.36rem;
+    font-weight: 700;
+}
+.van-nav-bar__arrow,
+.van-nav-bar__text {
+    color: white;
+    font-size: 0.3rem;
+    /*font-weight: bold;*/
+}
+.van-nav-bar__text:active {
+    background: rgba(6,126,263,.5);
+}
+.nav_div {
+    width: 100%;
+    height: 0.92rem;
+}
+.van-swipe{
+    img{
+        width: 100%;
+    }
+}
