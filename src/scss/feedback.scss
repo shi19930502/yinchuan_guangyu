@@ -1,0 +1,25 @@
+.feedback {
+    .pingfen {
+        display: flex;
+        font-size: 0.32rem;
+        font-weight: bold;
+        justify-content: space-between;
+        border-bottom: 1px solid  #DDDDDD;
+        padding: 0.45rem 0.33rem;
+        .pingfen_title {
+            display: flex;
+            align-items: center;
+        }
+        .van-rate {
+            svg {
+                width: 20px !important;
+            }
+        }
+        
+    }
+    .content {
+        background: white;
+        font-size: 0.28rem;
+
+    }
+}

@@ -6,10 +6,10 @@
 				<div class="header_left">企业信息</div>
 			</router-link>
 			<!--farmEntityView-->
-			<router-link v-if='true' :to="{name:'base',query:{traceablityNo:$route.query.traceablityNo}}">
+			<router-link v-if='true' :to="{name:'store',query:{traceablityNo:$route.query.traceablityNo}}">
 				<div class="header_content">店铺分布</div>
 			</router-link>
-			<router-link v-if='true' :to="{name:'base',query:{traceablityNo:$route.query.traceablityNo}}">
+			<router-link v-if='true' :to="{name:'client',query:{traceablityNo:$route.query.traceablityNo}}">
 				<div class="header_right">
 					<div class="children">
 						<p>顾客</p>
@@ -102,10 +102,10 @@
 				<div class="content_header">{{messageName}}</div>
 				<ul>
 					<li>{{recoveryEntityView.breedName}}</li>
-					<li>规格：<span>{{recoveryEntityView.specifications}}</span></li>
+					<!--<li>规格：<span>{{recoveryEntityView.specifications}}</span></li>-->
 					<li v-if='isJinheImgShow'><img src="../assets/img/sh_jinhe.png" alt="" /></li>
 					<li>等级：<span>{{recoveryEntityView.gradeName}}</span></li>
-					<li>收货人：<span>{{recoveryEntityView.operatorStaffName}}</span></li>
+					<li>收获人：<span>{{recoveryEntityView.operatorStaffName}}</span></li>
 					<li>收获时间：<span>{{recoveryEntityView.harvestDate}}</span></li>
 				</ul>
 				<div class="h_i_content">
@@ -160,7 +160,7 @@
 											<!--<div class="swiper-pagination-video"></div>-->
 										</div>
 									</li>
-									<li class="dian"><i></i>操作人：<span>{{productInfor.operatorStaffName}}</span></li>
+									<li class="dian"><i></i>负责人：<span>{{item.operatorStaffName}}</span></li>
 									<li class="dian"><i></i>工作参数：<span>{{item.processParameters}}</span></li>
 									<li class="dian"><i></i>作业环境：<span>{{item.operatingEnvironment}}</span></li>
 									<li class="dian" v-if='item.outdetal.length>0&&item.outdetal!=null'><i></i>原料：<span v-for="(i,n) in item.outdetal">{{i.breedName}}<span v-if='n+1!=item.outdetal.length'>、</span></span>

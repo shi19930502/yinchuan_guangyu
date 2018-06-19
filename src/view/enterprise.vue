@@ -4,11 +4,16 @@
 		<div class="nav_div"></div>
 		<div class="header">
 			<van-swipe :autoplay="4000"  @change='headerSwiperChange' v-if='headerBanner'>
-				<van-swipe-item v-for="(image, index) in banner" :key="index">
-					<div @click="onChange">
-						<img v-lazy="image" />
-					</div>
-				</van-swipe-item>
+				<div class="imgBF" v-for="(image, index) in banner">
+					<van-swipe-item :key="index">
+						<div class="imgB" :style="{background: 'url('+image+') no-repeat',filter:'blur(20px)',zIndex:'2'}"></div>
+						<div @click="onChange">
+							<!--懒加载有些图片加载有问题-->
+							<!--<img v-lazy="image" />-->
+							<img :src="image" alt="" />
+						</div>
+					</van-swipe-item>
+				</div>
 			</van-swipe>
 			<van-popup v-model="headerOneImgShow">
 				<img style="width: 7.4rem;" @click='oneImg' :src="headerOneImg" alt="" />

@@ -321,8 +321,11 @@
                     margin-bottom: 0.12rem;
                     img {
                         display: block;
-                        width: 100%;
+//                      width: 100%;
+                        margin: auto;
+                        max-width: 4.6rem;
                         height: 1.86rem;
+                        width: initial;
                     }
                     video {
                         width: 100%;
@@ -379,9 +382,11 @@
             margin: 0 0 0.4rem;
             background: white;
             img {
-                width: 100%;
+//              width: 100%;
+                max-height: 6.33rem;
                 height: 3.2rem;
                 display: block;
+                margin: auto;
             }
             video {
                 width: 100%;
@@ -400,10 +405,11 @@
 .popupCooked {
     margin: .2rem 0;
     img {
-        width: 100%;
-        max-height: 5.4rem;
+//      width: 100%;
+        max-width: 7.49rem;
+        height: 5.4rem;
         display: block;
-        margin-top: 0.3rem;
+        margin: 0.2rem auto 0; 
     }
     video {
         width: 100%;
@@ -413,10 +419,11 @@
 }
 .videoShow,.farmChildrenPopupShow {
     img {
-        width: 100%;
-        max-height: 5.4rem;
+//      width: 100%;
+        max-width: 7.49rem;
+        height: 5.4rem;
         display: block;
-        margin-top: 0.3rem;
+        margin: 0.3rem auto 0;
     }
     video {
         width: 100%;
