@@ -4,7 +4,7 @@
         font-size: 0.32rem;
         font-weight: bold;
         justify-content: space-between;
-        border-bottom: 1px solid  #DDDDDD;
+        border-bottom: 1px solid #DDDDDD;
         padding: 0.45rem 0.33rem;
         .pingfen_title {
             display: flex;
@@ -15,11 +15,32 @@
                 width: 20px !important;
             }
         }
-        
+
     }
     .content {
         background: white;
         font-size: 0.28rem;
-
+        .textarea {
+            box-sizing: border-box;
+            width: 100%;
+            height: 3.5rem;
+            background: transparent;
+            font-size: 0.2rem;
+            outline: none;
+            border: none;
+            text-indent: 0.42rem;
+            line-height: 0.34rem;
+            padding: 0.4rem 0rem 0.15rem;
+            color: #1B2B02;
+            font-size: .28rem;
+             resize : none;
+        }
+    }
+    .van-button--default {
+        background: #50A5F1;
+        color: white;
+        width: 6.85rem;
+        margin: auto;
+        display: block;
     }
 }

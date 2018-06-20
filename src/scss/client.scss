@@ -30,18 +30,24 @@
         font-size: 0.24rem;
         background: #F7FAF7;
         .content_list {
-            padding: .2rem .2rem .36rem .2rem;
+            padding: 0.2rem 0.2rem 0.36rem;
             box-sizing: border-box;
             background: white;
-            box-shadow:2px 0px 8px rgba(111,162,37,0.3);
-            margin: 0 0 .3rem 0;
+            box-shadow: 2px 0 8px rgba(111,162,37,0.3);
+            margin: 0 0 0.3rem;
             .list_name {
                 color: #1B2B02;
                 font-size: 0.32rem;
                 font-weight: bold;
+                display: flex;
+                justify-content: space-between;
+                .zd{
+                    color: #fe9b00;
+                    font-size: .2rem;
+                }
             }
             .list_start {
-                margin: .12rem 0 .27rem 0;
+                margin: 0.12rem 0 0.27rem;
                 display: flex;
                 .van-rate {
                     svg {
@@ -57,15 +63,43 @@
                         padding-left: 0.21rem;
                         border-left: 1px solid #B6B6B6;
                         margin: 0 0 0 0.19rem;
-                        line-height: .28rem;
+                        line-height: 0.28rem;
                     }
                 }
             }
-            .list_content{
+            .list_img{
+                display: flex;
+                img{
+                    display: inline-block;
+                    margin: 0 .3rem .25rem 0;
+                }
+            }
+            .list_content {
                 color: #3E3D3D;
-                font-size: .28rem;
+                font-size: 0.28rem;
+            }
+            p {
+                word-wrap: break-word;
+                word-break: break-all;
+                overflow: hidden;
             }
         }
 
+    }
+}
+.videoShow,.listPopupShow  {
+    img {
+//      width: 100%;
+        max-width: 7.49rem;
+        height: 100%;
+        max-height: 5.4rem;
+        display: flex;
+        align-items: center;
+        margin: 0.3rem auto 0;
+    }
+    video {
+        width: 100%;
+        max-height: 5.4rem;
+        margin-top: 0.3rem;
     }
 }

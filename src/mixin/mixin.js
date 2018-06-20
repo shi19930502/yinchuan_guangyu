@@ -79,9 +79,11 @@ export default {
 							data: parmas,
 							transformRequest: [function(params) {
 								var paramStr = '';
+								console.log(params)
 								for(var key in params) {
 									paramStr += key + "=" + params[key] + "&";
 								}
+								console.log(paramStr)
 								return paramStr;
 							}],
 						}).then(function(response) {
