@@ -78,16 +78,17 @@ export default {
 							url: url,
 							headers: { "Content-Type": "application/x-www-form-urlencoded" },
 							headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+							headers: { "Content-Type": "application/json;charset=UTF-8" },
 							data: parmas,
-							transformRequest: [function(params) {
-								var paramStr = '';
-								console.log(params)
-								for(var key in params) {
-									paramStr += key + "=" + params[key] + "&";
-								}
-								console.log(paramStr)
-								return paramStr;
-							}],
+//							transformRequest: [function(params) {
+//								var paramStr = '';
+//								console.log(params)
+//								for(var key in params) {
+//									paramStr += key + "=" + params[key] + "&";
+//								}
+//								console.log(paramStr)
+//								return paramStr;
+//							}],
 						}).then(function(response) {
 							if(response.data.status == 'success') {
 								resolve(response.data)

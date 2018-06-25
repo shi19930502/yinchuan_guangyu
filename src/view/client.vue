@@ -25,8 +25,8 @@
 						<van-rate v-model="item.star" :size="25" :count="5" color="#F8C328" disabled-color='#F8C328' disabled void-color="#ceefe8" />
 						<div class="timeF"><span class="time">{{item.createTime}}</span></div>
 					</div>
-					<div v-if='item.photo&&item.photo!=null' v-for='(i,n) in item.photo.split(",")' class="list_img">
-						<img :src="img_url+i" @click='lookImg(item.photo,n)' alt="" />
+					<div v-if='item.photo&&item.photo!=null'  class="list_img">
+						<img v-for='(i,n) in item.photo.split(",")' :src="img_url+i" @click='lookImg(item.photo,n)' alt="" />
 					</div>
 					<div class="list_content" v-html="item.content">{{item.content}}</div>
 				</div>

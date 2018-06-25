@@ -158,12 +158,16 @@
 				
 			},
 			onSuccess(response,file,fileList){
-				console.log('回调',response)
-				console.log('上传',file)
-				console.log('list',fileList)
+				if(this.form.photo){
+					this.form.photo+=","+response.result
+				}else{
+					this.form.photo+=response.result
+				}
+				
 				var isSuccess=true;
 				for(let a=0;a<fileList.length;a++){
 					if(fileList[a].status=='success'){
+						
 						isSuccess=true;
 					}else{
 						isSuccess=false;
