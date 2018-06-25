@@ -1,6 +1,6 @@
 <template>
 	<div class="client">
-		<van-nav-bar title="基地信息" left-text="返回" left-arrow @click-left="$root.onClickLeft" />
+		<van-nav-bar title="顾客反馈信息" left-text="返回" left-arrow @click-left="$root.onClickLeft" />
 		<div class="nav_div"></div>
 		<div class="header">
 			<div class="header_left">
@@ -8,7 +8,7 @@
 				<div class="header_left_label">反馈条数</div>
 			</div>
 			<!--<a href="tel:17380559502" >直接拨号</a>-->
-			<router-link v-if='true' :to="{name:'feedback',query:{traceablityNo:$route.query.traceablityNo}}">
+			<router-link v-if='true' :to="{name:'feedback',query:{traceablityNo:$route.query.traceablityNo,specifications:$route.query.specifications,varietyId:$route.query.varietyId,varietySpecId:$route.query.varietySpecId}}">
 				<div class="header_right">
 					<div>
 						<van-icon name="edit-data" />
@@ -73,6 +73,8 @@
 		},
 		mounted() {
 			this.listPopupShowSwiper()
+			console.log(this.$route.query.varietySpecId)
+			console.log(this.$route.query.varietyId)
 		},
 		methods: {
 			lookImg(str, num) {

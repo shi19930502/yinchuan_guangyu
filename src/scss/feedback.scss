@@ -20,6 +20,7 @@
     .content {
         background: white;
         font-size: 0.28rem;
+        position: relative;
         .textarea {
             box-sizing: border-box;
             width: 100%;
@@ -28,12 +29,19 @@
             font-size: 0.2rem;
             outline: none;
             border: none;
-            text-indent: 0.42rem;
+//          text-indent: 0.42rem;
             line-height: 0.34rem;
-            padding: 0.4rem 0rem 0.15rem;
+            padding: 0.4rem 0.15rem 0.15rem;
             color: #1B2B02;
-            font-size: .28rem;
-             resize : none;
+            font-size: 0.28rem;
+            resize: none;
+            border: 1px solid #DDDDDD;
+        }
+        .residue{
+            position: absolute;
+            bottom: .4rem;
+            right: .24rem;
+            color: #B6B6B6;
         }
     }
     .van-button--default {
@@ -43,4 +51,68 @@
         margin: auto;
         display: block;
     }
+    .van-uploader {
+        padding: 0 1rem 1rem;
+        border: 1px dotted red;
+        .van-icon-photograph {
+            position: relative;
+            top: 0.5rem;
+        }
+
+    }
+    .van-uploader__input {
+        width: 2rem;
+        height: 2rem;
+        //      position: absolute;
+        //      top: initial;
+        //      left: 0;
+        //      right: initial;
+        //      bottom: initial;
+    }
+    
+    .upload_width {
+        padding: 0.2rem 0.2rem 0.2rem 0.22rem;
+        .el-upload-list__item {
+            width: 2.2rem;
+            height: 2.2rem;
+        }
+        .el-upload--picture-card {
+            width: 2.2rem;
+            height: 2.2rem;
+            position: relative;
+            .el-icon-plus {
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+            }
+            .el-icon-plus:before {
+                width: 0.6rem;
+                height: 0.6rem;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                display: block;
+                margin: auto;
+            }
+        }
+    }
+    .el-progress-circle {
+        width: 2.2rem !important;
+        height: 2.2rem !important;
+        margin: auto;
+    }
+    .warning{
+        font-size: .24rem;
+//      color: #B6B6B6;
+        padding: .45rem .3rem;
+        line-height: .4rem;
+        text-align: center;
+    }
+
 }

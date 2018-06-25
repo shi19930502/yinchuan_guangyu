@@ -9,7 +9,7 @@
 			<router-link v-if='true' :to="{name:'store',query:{traceablityNo:$route.query.traceablityNo}}">
 				<div class="header_content">店铺分布</div>
 			</router-link>
-			<router-link v-if='true' :to="{name:'client',query:{traceablityNo:$route.query.traceablityNo}}">
+			<router-link v-if='true' :to="{name:'client',query:{traceablityNo:$route.query.traceablityNo,specifications:this.varietyEntityView.specifications,varietyId:this.varietyEntityView.varietyId,varietySpecId:this.varietyEntityView.varietySpecId}}">
 				<div class="header_right">
 					<div class="children">
 						<p>顾客</p>

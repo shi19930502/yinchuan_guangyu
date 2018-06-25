@@ -73,9 +73,11 @@ export default {
 			if(type == 'post') {
 				return new Promise((resolve, reject) => {
 					axios({
+//						application/x-www-form-urlencoded;charset=UTF-8
 							method: type,
 							url: url,
 							headers: { "Content-Type": "application/x-www-form-urlencoded" },
+							headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
 							data: parmas,
 							transformRequest: [function(params) {
 								var paramStr = '';
