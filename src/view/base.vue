@@ -1,6 +1,6 @@
 <template>
 	<div class="base">
-		<van-nav-bar title="基地信息" left-text="返回" left-arrow @click-left="$root.onClickLeft" />
+		<van-nav-bar title="基地信息" right-text="首页" @click-right="$root.onClickRight" left-text="返回" left-arrow @click-left="$root.onClickLeft" />
 		<div class="nav_div"></div>
 		<div class="content">
 			<div class="content_children">

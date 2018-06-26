@@ -193,6 +193,9 @@ export default {
 		onClickLeft() {
 			window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
 		},
+		onClickRight(){
+			this.$router.push({name:'index',query:{traceablityNo:this.$route.query.traceablityNo}})
+		},
 		//获取url参数
 		getQueryString(name) {
 			var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');

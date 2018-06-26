@@ -1,6 +1,11 @@
 <template>
 	<div class="client">
-		<van-nav-bar title="顾客反馈信息" left-text="返回" left-arrow @click-left="$root.onClickLeft" />
+		<van-nav-bar title="顾客反馈信息" 
+			left-text="返回" 
+			left-arrow 
+			right-text="首页" @click-right="$root.onClickRight"
+			@click-left="$root.onClickLeft" 
+			/>
 		<div class="nav_div"></div>
 		<div class="header">
 			<div class="header_left">
@@ -8,7 +13,7 @@
 				<div class="header_left_label">反馈条数</div>
 			</div>
 			<!--<a href="tel:17380559502" >直接拨号</a>-->
-			<router-link v-if='true' :to="{name:'feedback',query:{traceablityNo:$route.query.traceablityNo,specifications:$route.query.specifications,varietyId:$route.query.varietyId,varietySpecId:$route.query.varietySpecId}}">
+			<router-link v-if='true' :to="{name:'feedback',query:{traceablityNo:$route.query.traceablityNo,varietyId:$route.query.varietyId,varietySpecId:$route.query.varietySpecId}}">
 				<div class="header_right">
 					<div>
 						<van-icon name="edit-data" />
@@ -32,6 +37,9 @@
 				</div>
 			</van-list>
 		</div>
+		<div class="daodila">
+			已经到底了，没有更多啦~~~~~
+		</div>
 		<van-popup v-model="listPopupShow">
 			<div class="swiper-container listPopupShow" id='listPopupShow'>
 				<div class="swiper-wrapper">
@@ -41,6 +49,9 @@
 				<div class="swiper-pagination-farmChildrenPopupShow"></div>
 			</div>
 		</van-popup>
+		<div :style="scrollTopStyle" @click="goTop" class="scrollTop">
+			<van-icon name="upgrade" />
+		</div>
 	</div>
 </template>
 
@@ -69,14 +80,61 @@
 				pageSize: 10,
 				listPopupShow: false,
 				ListPopupShowObj: {},
+				scrollTopStyle: {
+					display: "none"
+				}
 			}
 		},
 		mounted() {
 			this.listPopupShowSwiper()
-			console.log(this.$route.query.varietySpecId)
-			console.log(this.$route.query.varietyId)
+			var vm = this;
+			document.onscroll = function() {
+				var scrollTop = 0;
+				if(document.documentElement && document.documentElement.scrollTop) {
+					scrollTop = document.documentElement.scrollTop;
+				} else if(document.body) {
+					scrollTop = document.body.scrollTop;
+				}
+
+				if(scrollTop > 300) {
+					vm.orderDateStyle = {
+						position: "fixed",
+						top: 0
+					}
+					vm.isShowOrderDateFlexd = true;
+				} else {
+					vm.orderDateStyle = {
+						position: "",
+						top: 0
+					}
+					vm.isShowOrderDateFlexd = false;
+				}
+				if(scrollTop > 280) {
+					vm.scrollTopStyle = { display: 'block' }
+				} else {
+					vm.scrollTopStyle = { display: 'none' }
+				}
+			}
 		},
 		methods: {
+			goTop() {
+				var timer = setInterval(function() {
+					//获取滚动条的滚动高度
+					var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+					//用于设置速度差，产生缓动的效果
+					var speed = Math.floor(-osTop / 6);
+					if(document.documentElement && document.documentElement.scrollTop) {
+						document.documentElement.scrollTop = document.body.scrollTop = osTop + speed;
+					} else if(document.body) {
+						document.body.scrollTop = osTop + speed;
+					}
+					//      document.documentElement.scrollTop = document.body.scrollTop = osTop + speed;
+					var isTop = true; //用于阻止滚动事件清除定时器
+					if(osTop == 0) {
+						clearInterval(timer);
+					}
+				}, 30);
+			},
 			lookImg(str, num) {
 				var vm = this;
 				var arr = str.split(',');
@@ -129,6 +187,9 @@
 						Object.assign(vm.ListPopupShowObj, swiper)
 					},
 					paginationType: 'fraction',
+					onClick:function(swiper){
+						vm.listPopupShow=false;
+					}
 				});
 				Object.assign(this.ListPopupShowObj, ListPopupShowObj)
 			},

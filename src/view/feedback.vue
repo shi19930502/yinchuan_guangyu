@@ -1,6 +1,6 @@
 <template>
 	<div class="feedback">
-		<van-nav-bar title="撰写反馈" left-text="返回" left-arrow @click-left="$root.onClickLeft" />
+		<van-nav-bar title="撰写反馈" right-text="首页" @click-right="$root.onClickRight" left-text="返回" left-arrow @click-left="$root.onClickLeft" />
 		<div class="nav_div"></div>
 		<div class="pingfen">
 			<div class="pingfen_title">评分</div>
@@ -146,7 +146,11 @@
 						param: this.form,
 					}).then((d) => {
 						console.log(d)
-						Toast('评论成功！')
+						if(d.status=='success'){
+							Toast('评论成功！');
+							this.$router.push({name:'client',query:{traceablityNo:this.$route.query.traceablityNo,varietyId:this.$route.query.varietyId,varietySpecId:this.$route.query.varietySpecId}})
+						}
+						
 					})
 				}else{
 					Toast('请输入内容！')

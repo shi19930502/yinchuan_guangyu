@@ -9,7 +9,7 @@
 			<router-link v-if='true' :to="{name:'store',query:{traceablityNo:$route.query.traceablityNo}}">
 				<div class="header_content">店铺分布</div>
 			</router-link>
-			<router-link v-if='true' :to="{name:'client',query:{traceablityNo:$route.query.traceablityNo,specifications:this.varietyEntityView.specifications,varietyId:this.varietyEntityView.varietyId,varietySpecId:this.varietyEntityView.varietySpecId}}">
+			<router-link v-if='true' :to="{name:'client',query:{traceablityNo:$route.query.traceablityNo,varietyId:this.varietyEntityView.varietyId,varietySpecId:this.varietyEntityView.varietySpecId}}">
 				<div class="header_right">
 					<div class="children">
 						<p>顾客</p>
@@ -174,6 +174,30 @@
 					</div>
 				</div>
 			</div>
+			<!--检验设备-->
+			<div v-if='isEquipmentsShow' class="equipments">
+				<div class="content_header">检验设备</div>
+				<div class="content_header">{{cookbooksName}}</div>
+				<div class="swiper-container cookedSwiper">
+					<div class="swiper-wrapper">
+						<div v-if='cookbooks[0].video!=null&&cookbooks[0].video' class="swiper-slide">
+							<!--autoplay="autoplay" controls="controls"-->
+							<!--poster="../assets/img/banner.png"-->
+							<video id="videoCooked" poster="../assets/img/video.png" controls="controls">
+								<source :src="video_url+cookbooks[0].video" type="video/mp4" />
+								<source id="ogg_src" :src="video_url+cookbooks[0].video" type="video/ogg"> 您的浏览器不支持 HTML5 video 标签。
+							</video>
+						</div>
+						<div v-if='cookbooks[0].photo!=null&&cookbooks[0].photo' v-for='itemPhoto in cookbooks[0].photo.split(",")' class="swiper-slide">
+							<img :data-src="img_url+itemPhoto" alt="" class="swiper-lazy" />
+						</div>
+					</div>
+					<div class="swiper-pagination-cooked"></div>
+				</div>
+				<div v-if='cookbooks[0].describe!=null' class="text">
+					{{cookbooks[0].describe}}
+				</div>
+			</div>
 			<!--广玉的面食分享-->
 			<div v-if='isCookedShow' class="cooked">
 				<div class="content_header">{{cookbooksName}}</div>
@@ -336,6 +360,7 @@
 				cultureEntityViewShow: false,
 				bannerStyle: {},
 				isJinheImgShow: false,
+				isEquipmentsShow:false,
 				isCookedShow: false,
 				cookbooks: [],
 				popupCookedSwiperObj: {},
