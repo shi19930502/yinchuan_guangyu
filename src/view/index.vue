@@ -180,7 +180,7 @@
 				<div class="swiper-container equipments">
 					<div class="swiper-wrapper">
 						<div v-for="item in equipments" class="swiper-slide">
-							<div class="name">{{item.name}}</div>
+							<div class="name" >{{item.name}}</div>
 							<div class="swiper-container equipmentsChildren">
 								<div class="swiper-wrapper">
 									<div @click='videoClick(item)' v-if='item.video!=null&&cookbooks[0].video' class="swiper-slide">
@@ -496,7 +496,6 @@
 						if(d.result.cookbooks != null && d.result.cookbooks.length > 0) {
 							this.isCookedShow = true;
 							this.cookbooks = d.result.cookbooks
-							this.cookbooks[0].photo=null
 							this.isPopupCookedShow = true;
 							this.$nextTick(() => {
 								this.cookedSwiper();
@@ -507,7 +506,7 @@
 						if(d.result.equipments != null && d.result.equipments.length > 0) {
 							this.isEquipmentsShow=true
 							this.equipments=d.result.equipments
-							this.nextTick(()=>{
+							this.$nextTick(()=>{
 								this.equipmentsSwiper();
 							})
 						}
@@ -662,7 +661,7 @@
 				//					}
 				//				}
 			},
-			//判断是否是tap事件
+			//加工过程的弹出swiper
 			videoSwiperOnclick(swiper) {
 				var vm = this;
 				var arr = [];
