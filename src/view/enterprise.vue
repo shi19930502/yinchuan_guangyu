@@ -61,6 +61,10 @@
 				</p>
 			</div>
 		</div>
+		<div class="footer">
+	    	<p class='footerName'>{{title}}追溯查询系统</p>
+	    	<p class="jszc">技术支持：成都九洲电子信息系统股份有限公司</p>
+	    </div>
 	</div>
 </template>
 
@@ -83,6 +87,7 @@
 	export default {
 		data() {
 			return {
+				title:TITLE,
 				//cli,要么图片放入static里面。要么url-loader不要7位数的hash，
 				headerBanner: true,
 				headerBannerCount: 0,

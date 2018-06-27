@@ -17,13 +17,13 @@
         }
         .right_icon {
             width: 45px;
-            height: 91px;
+            height: 45px;
             //          background: ;
             display: block;
             position: absolute;
             z-index: 9999;
-            right: 20px;
-            bottom: 10px; 
+            right: 10px;
+            bottom: 75px;
             background: rgba(255,255,255,.6);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -49,7 +49,7 @@
             top: 40px;
             width: 100%;
             .input {
-//              box-sizing: border-box;
+                //              box-sizing: border-box;
                 margin: auto;
                 width: 340px;
                 height: 25px;
@@ -58,8 +58,8 @@
                 padding: 10px;
                 background: rgba(255,255,255,.9);
                 border: 1px solid RGBA(0, 0, 0, 0.2);
-                font-size: 16px; 
-                line-height: 16px; 
+                font-size: 16px;
+                line-height: 16px;
                 &::-webkit-input-placeholder {
                     /* WebKit browsers */
                     font-size: 20px;
@@ -88,5 +88,26 @@
 
         }
     }
-
+    .amap-geo {
+        //      display: none;
+    }
+    .amap-icon{
+        img{
+            width: 30px;
+//          height: ;
+        }
+    }
+    .right_icon_top {
+        position: relative;
+        background: rgba(255,255,255,.6);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        img {
+            width: 45px;
+            height: 46px;
+            box-sizing: border-box;
+            padding: 11px;
+            display: block;
+        }
+    }
 }

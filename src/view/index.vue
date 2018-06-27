@@ -177,26 +177,33 @@
 			<!--检验设备-->
 			<div v-if='isEquipmentsShow' class="equipments">
 				<div class="content_header">检验设备</div>
-				<div class="content_header">{{cookbooksName}}</div>
-				<div class="swiper-container cookedSwiper">
+				<div class="swiper-container equipments">
 					<div class="swiper-wrapper">
-						<div v-if='cookbooks[0].video!=null&&cookbooks[0].video' class="swiper-slide">
-							<!--autoplay="autoplay" controls="controls"-->
-							<!--poster="../assets/img/banner.png"-->
-							<video id="videoCooked" poster="../assets/img/video.png" controls="controls">
-								<source :src="video_url+cookbooks[0].video" type="video/mp4" />
-								<source id="ogg_src" :src="video_url+cookbooks[0].video" type="video/ogg"> 您的浏览器不支持 HTML5 video 标签。
-							</video>
-						</div>
-						<div v-if='cookbooks[0].photo!=null&&cookbooks[0].photo' v-for='itemPhoto in cookbooks[0].photo.split(",")' class="swiper-slide">
-							<img :data-src="img_url+itemPhoto" alt="" class="swiper-lazy" />
+						<div v-for="item in equipments" class="swiper-slide">
+							<div class="name">{{item.name}}</div>
+							<div class="swiper-container equipmentsChildren">
+								<div class="swiper-wrapper">
+									<div @click='videoClick(item)' v-if='item.video!=null&&cookbooks[0].video' class="swiper-slide">
+										<!--autoplay="autoplay" controls="controls"-->
+										<!--poster="../assets/img/banner.png"-->
+										<video id="videoCooked" poster="../assets/img/video.png" controls="controls">
+											<source :src="video_url+item.video" type="video/mp4" />
+											<source id="ogg_src" :src="video_url+item.video" type="video/ogg"> 您的浏览器不支持 HTML5 video 标签。
+										</video>
+									</div>
+									<template v-if='item.photo!=null&&item.photo'>
+										<div  v-for='itemPhoto in item.photo.split(",")' class="swiper-slide">
+											<img @click='videoClick(item)' :data-src="img_url+itemPhoto" alt="" class="swiper-lazy" />
+										</div>
+									</template>
+									
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="swiper-pagination-cooked"></div>
+					<div class="swiper-pagination-equipments"></div>
 				</div>
-				<div v-if='cookbooks[0].describe!=null' class="text">
-					{{cookbooks[0].describe}}
-				</div>
+				
 			</div>
 			<!--广玉的面食分享-->
 			<div v-if='isCookedShow' class="cooked">
@@ -262,6 +269,10 @@
 				<div class="swiper-pagination-farmChildrenPopupShow"></div>
 			</div>
 		</van-popup>
+		<div class="footer">
+	    	<p class='footerName'>{{title}}追溯查询系统</p>
+	    	<p class="jszc">技术支持：成都九洲电子信息系统股份有限公司</p>
+	    </div>
 	</div>
 </template>
 
@@ -293,6 +304,7 @@
 	export default {
 		data() {
 			return {
+				title:TITLE,
 				popupShow: false,
 				popupCookedShow: false,
 				count: 0,
@@ -361,6 +373,7 @@
 				bannerStyle: {},
 				isJinheImgShow: false,
 				isEquipmentsShow:false,
+				equipments:[],
 				isCookedShow: false,
 				cookbooks: [],
 				popupCookedSwiperObj: {},
@@ -391,6 +404,10 @@
 			this.init();
 		},
 		methods: {
+			videoClick(item){
+				console.log(item)
+				
+			},
 			init() {
 				this.$root.ajax({
 					url: API_URL + "traceablity/getTraceablityInfo",
@@ -479,10 +496,19 @@
 						if(d.result.cookbooks != null && d.result.cookbooks.length > 0) {
 							this.isCookedShow = true;
 							this.cookbooks = d.result.cookbooks
+							this.cookbooks[0].photo=null
 							this.isPopupCookedShow = true;
 							this.$nextTick(() => {
 								this.cookedSwiper();
 								this.popupCooked();
+							})
+						}
+						//检验设备
+						if(d.result.equipments != null && d.result.equipments.length > 0) {
+							this.isEquipmentsShow=true
+							this.equipments=d.result.equipments
+							this.nextTick(()=>{
+								this.equipmentsSwiper();
 							})
 						}
 					} else {
@@ -729,6 +755,29 @@
 					arr.push(str)
 				}
 				return arr
+			},
+			//检验设备
+			equipmentsSwiper(){
+				var vm = this
+				var cookedSwiper = new Swiper('.equipments', {
+					observeParents: true,
+					lazyLoading: true,
+					centeredSlides: true,
+					lazyLoadingOnTransitionStart: true,
+					lazyLoadingInPrevNext: true,
+					lazyLoadingInPrevNextAmount: 1,
+					autoplay: 4000,
+					pagination: '.swiper-pagination-equipments',
+					onSlideChangeStart: function(swiper) {
+
+					},
+					paginationType: 'fraction',
+					onClick: function(swiper) {
+//						vm.isPopupCookedShow = true;
+//						vm.popupCookedSwiperObj.slideTo(swiper.activeIndex)
+//						vm.popupCookedShow = true;
+					}
+				});
 			},
 			//面食分享的swiper
 			cookedSwiper() {

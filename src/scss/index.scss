@@ -376,6 +376,33 @@
                 line-height: 40px;
             }
         }
+        //检验设备
+        .equipments{
+            width: 100%;
+            overflow: hidden;
+            padding: 0 0.35rem 0.46rem;
+            box-sizing: border-box;
+            margin: 0 0 0.4rem;
+            background: white;
+            img {
+//              width: 100%;
+                max-height: 6.33rem;
+                height: 3.2rem;
+                display: block;
+                margin: auto;
+            }
+            video {
+                width: 100%;
+                height: 3.2rem;
+            }
+            .name{
+                color: #639617;
+                font-size: .38rem;
+                text-align: center;
+                margin: .5rem auto .48rem;
+                font-weight: bold;
+            }
+        }
         //面食分享
         .cooked {
             width: 100%;

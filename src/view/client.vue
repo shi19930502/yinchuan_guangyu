@@ -37,9 +37,9 @@
 				</div>
 			</van-list>
 		</div>
-		<div class="daodila">
+		<!--<div class="daodila">
 			已经到底了，没有更多啦~~~~~
-		</div>
+		</div>-->
 		<van-popup v-model="listPopupShow">
 			<div class="swiper-container listPopupShow" id='listPopupShow'>
 				<div class="swiper-wrapper">
@@ -52,6 +52,10 @@
 		<div :style="scrollTopStyle" @click="goTop" class="scrollTop">
 			<van-icon name="upgrade" />
 		</div>
+		<div class="footer">
+	    	<p class='footerName'>{{title}}追溯查询系统</p>
+	    	<p class="jszc">技术支持：成都九洲电子信息系统股份有限公司</p>
+	    </div>
 	</div>
 </template>
 
@@ -71,6 +75,7 @@
 	export default {
 		data() {
 			return {
+				title:TITLE,
 				dataCount: 0,
 				img_url: IMG_URL,
 				list: [],
