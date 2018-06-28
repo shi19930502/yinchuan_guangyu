@@ -40,7 +40,7 @@
 		<!--<div class="daodila">
 			已经到底了，没有更多啦~~~~~
 		</div>-->
-		<van-popup v-model="listPopupShow">
+		<van-popup @click-overlay='closePopup' v-model="listPopupShow">
 			<div class="swiper-container listPopupShow" id='listPopupShow'>
 				<div class="swiper-wrapper">
 
@@ -87,7 +87,8 @@
 				ListPopupShowObj: {},
 				scrollTopStyle: {
 					display: "none"
-				}
+				},
+				imgArr:[],
 			}
 		},
 		mounted() {
@@ -143,11 +144,19 @@
 			lookImg(str, num) {
 				var vm = this;
 				var arr = str.split(',');
+				console.log(arr)
+				vm.listPopupShow=true;
+				for(let a=0;a<arr.length;a++){
+					this.ListPopupShowObj.virtual.appendSlide(`<div class="swiper-slide">
+					    <img  src=${IMG_URL}${arr[a]} alt="" class="swiper-lazy list_img" />
+					</div>`)
+				}
+				
 				//移除所有的swiper
-				this.ListPopupShowObj.removeAllSlides();
-				setTimeout(function() {
-					vm.farmChildrenClick(arr, num)
-				}, 400)
+//				this.ListPopupShowObj.removeAllSlides();
+//				setTimeout(function() {
+//					vm.farmChildrenClick(arr, num)
+//				}, 400)
 			},
 			farmChildrenClick(arr, num) {
 				//動態SWIPER的str
@@ -181,21 +190,35 @@
 				var vm = this
 				var ListPopupShowObj = new Swiper('#listPopupShow', {
 					observeParents: true,
-					lazyLoading: true,
-					lazyLoadingOnTransitionStart: true,
+					lazy: {
+						loadPrevNext: true,
+						loadPrevNextAmount: 1,
+					},
 					centeredSlides: true,
 					width: window.innerWidth, //innerHeight
 					height: window.innerHeight,
-					pagination: '.swiper-pagination-farmChildrenPopupShow',
-					paginationType: 'fraction',
-					onClick:function(){
-						vm.listPopupShow=false;
+					pagination: {
+						el: '.swiper-pagination-farmChildrenPopupShow',
+						type: 'fraction'
 					},
-					onSlideChangeStart:function(swiper){
-						vm.ListPopupShowObj=swiper;
-					},
+					virtual:true,
+					on:{
+						click:function(){
+							vm.listPopupShow=false;
+							this.virtual.slides.length=0;
+           					this.virtual.cache=[]; 
+						},
+						slideChangeTransitionStart:function(){
+							vm.ListPopupShowObj=this;
+						},
+					}
 				});
 				this.ListPopupShowObj=ListPopupShowObj
+			},
+			closePopup(){
+				
+				this.ListPopupShowObj.virtual.slides.length=0;
+           		this.ListPopupShowObj.virtual.cache=[]; 
 			},
 			onLoad() {
 				this.$root.ajax({

@@ -1,6 +1,6 @@
 .client {
-    .footer{
-        background: white;
+    .footer {
+        background: #F7FAF7 !important;
     }
     .van-nav-bar {
         z-index: 999 !important;
@@ -87,13 +87,14 @@
                 word-wrap: break-word;
                 word-break: break-all;
                 overflow: hidden;
+                line-height: 0.36rem;
             }
         }
 
     }
     .van-modal {
         background: rgb(76, 76, 76);
-//      background: black;
+        //      background: black;
     }
     .scrollTop {
         width: 1rem;
@@ -103,38 +104,38 @@
         right: 0.5rem;
         bottom: 1rem;
     }
-    .daodila{
-        font-size: .24rem;
+    .daodila {
+        font-size: 0.24rem;
         color: #B6B6B6;
         text-align: center;
-        margin: 0 0 .3rem 0;
+        margin: 0 0 0.3rem;
     }
     .listPopupShow,
-.videoShow {
-    .swiper-slide {
-        display: flex;
-        align-items: center;
-        margin: auto;
-    }
-    img {
-        max-width: 100%;
-        //      height: 100%;
-        //      max-height: 10rem;
-        //      max-height: 5.4rem;
-        align-items: center;
-        margin: 0.3rem auto 0;
-    }
-    video {
-        width: 100%;
-        max-height: 5.4rem;
-        margin-top: 0.3rem;
-    }
-}
-.listPopupShow {
-    background: rgba(0, 0, 0, 0.7);
-    background: rgb(76, 76, 76);
-//  background: black;
-    color: white;
-}
-}
+    .videoShow {
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+            margin: auto;
+        }
+        img {
+            max-width: 100%;
+            //      height: 100%;
+            max-height: 10rem;
+            //      max-height: 5.4rem;
+            align-items: center;
+            margin: 0.3rem auto 0;
+        }
 
+        video {
+            width: 100%;
+            max-height: 5.4rem;
+            margin-top: 0.3rem;
+        }
+    }
+    .listPopupShow {
+        background: rgba(0, 0, 0, 0.7);
+        background: rgb(76, 76, 76);
+        //  background: black;
+        color: white;
+    }
+}

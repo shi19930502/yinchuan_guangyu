@@ -180,7 +180,7 @@
 				<div class="swiper-container equipments">
 					<div class="swiper-wrapper">
 						<div v-for="item in equipments" class="swiper-slide">
-							<div class="name"  @click='videoClick(item)'>{{item.name}}</div>
+							<div class="name" >{{item.name}}</div>
 							<div class="swiper-container equipmentsChildren">
 								<div class="swiper-wrapper">
 									<div @click='videoClick(item)' v-if='item.video!=null&&cookbooks[0].video' class="swiper-slide">
@@ -554,7 +554,7 @@
 					onInit: function(swiper) {
 						vm.farmCount = swiper.activeIndex;
 					},
-					//这里写上onClick是因为有时候滑动的时候onSlideChangeStart或者onSlideChangeEnd不执行调用的
+					//这里协商onClick是因为有时候滑动的时候onSlideChangeStart或者onSlideChangeEnd不执行调用的
 					onSlideChangeStart:function(swiper){
 						vm.farmCount = swiper.activeIndex;
 					},
@@ -653,6 +653,22 @@
 						vm.videoSwiperOnclick(swiper)
 					}
 				});
+				//tap这种300ms的延迟点透在Safari上面有问题。是否是延迟加载造成的还未测试！
+				//				if(!Array.isArray(videoSwiper)) {
+				//					videoSwiper = [videoSwiper]
+				//				}
+				//				for(let m = 0; m < videoSwiper.length; m++) {
+				//					if(vm.$root.getOS() == 'pcOS') {
+				//						videoSwiper[m].on('click', function(swiper) {
+				//							vm.videoSwiperOnclick(swiper)
+				//						})
+				//					} else {
+				//						//QQ打开，会有点透事件，占时无法解决
+				//						videoSwiper[m].on('tap', function(swiper) {
+				//							vm.videoSwiperOnclick(swiper)
+				//						})
+				//					}
+				//				}
 			},
 			//加工过程的弹出swiper
 			videoSwiperOnclick(swiper) {
@@ -669,6 +685,7 @@
 
 				//1||0.5  2||0.5  3||1  4||1.5
 				//				if(swiper.activeIndex == 1) {
+				//					alert('说')
 				//					vm.videoShowSwiperObj.slideTo(swiper.activeIndex);
 				//					for(var i = 0; i < vm.videoShowSwiperObj.slides.length; i++) {
 				//						vm.videoShowSwiperObj.slides[i].style.transform = 'translate3d(' + ((2 - 1) * 0.5) * vm.videoShowSwiperObj.width + 'px, 0px, 0px)';
